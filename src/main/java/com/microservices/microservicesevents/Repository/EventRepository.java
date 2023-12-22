@@ -1,4 +1,4 @@
-package Repository;
+package com.microservices.microservicesevents.Repository;
 
 import java.time.LocalDateTime;
 import java.util.List;

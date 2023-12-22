@@ -1,4 +1,4 @@
-package Repository;
+package com.microservices.microservicesevents.Repository;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
