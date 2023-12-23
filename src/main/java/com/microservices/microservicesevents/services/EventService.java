@@ -13,6 +13,7 @@ import com.microservices.microservicesevents.domain.Event;
 import com.microservices.microservicesevents.domain.Subscription;
 import com.microservices.microservicesevents.dtos.EmailRequestDTO;
 import com.microservices.microservicesevents.dtos.EventRequestDTO;
+import com.microservices.microservicesevents.exceptions.EventFullException;
 import com.microservices.microservicesevents.exceptions.EventNotFoundException;
 
 @Service
@@ -48,7 +49,7 @@ public class EventService {
 				Event event = eventRepository.findById(eventId).orElseThrow(EventNotFoundException::new);
 
 				if(isEventFull(event)) {
-            throw new EventNotFoundException();
+            throw new EventFullException();
         }
 
         Subscription subscription = new Subscription(event, participantEmail);
