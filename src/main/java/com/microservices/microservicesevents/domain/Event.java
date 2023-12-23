@@ -1,5 +1,7 @@
 package com.microservices.microservicesevents.domain;
 
+import com.microservices.microservicesevents.dtos.EventRequestDTO;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -26,5 +28,13 @@ public class Event {
     private String title;
     private String description;
 
+    public Event(EventRequestDTO eventRequest){
+        this.date= eventRequest.date();
+        this.maxParticipants = eventRequest.maxParticipants();
+        this.title = eventRequest.title();
+        this.registeredParticipants=eventRequest.registeredParticipants();
+        this.maxParticipants= eventRequest.maxParticipants();
+        this.description= eventRequest.description();
+    }
 
 }
